@@ -1,19 +1,35 @@
 // Collect data
-let gender = document.getElementsByName("gender").value;
-let date = document.getElementById("date").value;
-let month = document.getElementById("month").value;
-let year = document.getElementById("year").value;
+let submitButton = document.getElementById("submitBtn");
+submitButton.addEventListener('click', checkDateValue, checkMonthValue, true);
 
-// prompts user to enter birth date dd/mm/yy format
+function checkDateValue(event) {
+    event.preventDefault();
+    let dateValue = document.getElementById("date").value;
+
+    if (dateValue <= 0 || dateValue > 31) {
+        alert("Invalid date")
+    }
+}
+
+function checkMonthValue(event) {
+    event.preventDefault();
+    let monthValue = document.getElementById("month").value;
+
+    if (monthValue <= 0 || monthValue > 12) {
+        alert("invalid month")
+    }
+
+}
+
+let gender = document.getElementsByName("gender").value;
+let yearValue = document.getElementById("year").value;
 
 
 // function to calculate day of birth
 
 
-// asks for gender of user
 
 
-// confirms gender and birth date
 
 
 // assigns name to day of the week and gender
