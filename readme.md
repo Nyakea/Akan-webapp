@@ -30,7 +30,7 @@ CSS
 JavaScript
 
 ## link to live site on GitHub Pages
-Live link: 
+Live link: https://nyakea.github.io/Akan-webapp/
 
 ## copyright and license information
 MIT License
