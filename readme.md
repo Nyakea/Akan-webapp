@@ -1,4 +1,4 @@
-# Portfolio
+# Akan Name Web-app
 
 ## project or program name
 Project Name: Akan webapp
