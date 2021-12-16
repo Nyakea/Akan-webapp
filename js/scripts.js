@@ -1,88 +1,43 @@
-// Collect data
-let submitButton = document.getElementById("submitBtn");
-submitButton.addEventListener('click', checkDateValue, true);
+function getNames() {
+    // Collect data
+    //Gender values
+    var male = document.getElementById("male").checked;
+    var female = document.getElementById("female").checked;
 
-function checkDateValue(event) {
-    event.preventDefault();
-    let dateValue = document.getElementById("date").value;
 
+    // Birth date values
+    let dateValue = parseInt(document.getElementById("date").value);
+    let monthValue = parseInt(document.getElementById("month").value);
+    let yearValue = (document.getElementById("year").value);
+
+    // Array of days and names assigned to days
+    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+    let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
+
+    // Validate date
     if (dateValue <= 0 || dateValue > 31) {
-        alert("Invalid date")
+        alert("Invalid date! Please enter valid date.")
+    }
+    // Validate month
+    else if (monthValue <= 0 || monthValue > 12) {
+        alert("Invalid month! Please enter valid month.")
     }
 
 
 
-    let monthValue = document.getElementById("month").value;
 
-    if (monthValue <= 0 || monthValue > 12) {
-        alert("invalid month")
+
+    // To calculate day of birth
+    let century = parseInt(yearValue.slice(0, 2));
+    let yearDigits = parseInt(yearValue.slice(2));
+    let birthDay = (((century / 4) - (2 * century) - 1) + (5 * (yearDigits / 4)) + ((26 * (monthValue + 1) / 10)) + dateValue) % 7;
+
+    // To assign names to gender and day
+    if (male === true) {
+        document.getElementById("results").innerHTML = "You were born on " + weekDays[(birthDay - 1)] + " and your Akan name is " + maleNames[birthDay - 1];
+    } else if (female === true) {
+        document.getElementById("results").innerHTML = "You were born on " + weekDays[(birthDay - 1)] + " and your Akan name is " + femaleNames[birthDay - 1];
     }
 
-
-
-let gender = document.querySelector("input[name='gender']");
-let genderValue = gender.value;
-let yearValue = document.getElementById("year").value;
-
-
-// function to calculate day of birth
-
-let birthDay;
-
-
-
-
-// assigns name to day of the week and gender
-
-let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-let maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
-let femaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
-
-if(genderValue = male){
-    if(birthDay = 1){
-        alert("You were born on " + weekDays[0] + " and your Akan name is " + maleNames[0]);
-    }
-    if(birthDay = 2){
-        alert("You were born on " + weekDays[1] + " and your Akan name is " + maleNames[1]);
-    }
-    else if(birthDay = 3){
-        alert("You were born on " + weekDays[2] + " and your Akan name is " + maleNames[2]);
-    }
-    else if(birthDay = 4){
-        alert("You were born on " + weekDays[3] + " and your Akan name is " + maleNames[3]);
-    }
-    else if(birthDay = 5){
-        alert("You were born on " + weekDays[4] + " and your Akan name is " + maleNames[4]);
-    }
-    else if(birthDay = 6){
-        alert("You were born on " + weekDays[5] + " and your Akan name is " + maleNames[5]);
-    }
-    else if(birthDay = 7){
-        alert("You were born on " + weekDays[6] + " and your Akan name is " + maleNames[6]);
-    }
 }
-else if(genderValue = female){
-    if(birthDay = 1){
-        alert("You were born on " + weekDays[0] + " and your Akan name is " + femaleNames[0]);
-    }
-    if(birthDay = 2){
-        alert("You were born on " + weekDays[1] + " and your Akan name is " + femaleNames[1]);
-    }
-    else if(birthDay = 3){
-        alert("You were born on " + weekDays[2] + " and your Akan name is " + femaleNames[2]);
-    }
-    else if(birthDay = 4){
-        alert("You were born on " + weekDays[3] + " and your Akan name is " + femaleNames[3]);
-    }
-    else if(birthDay = 5){
-        alert("You were born on " + weekDays[4] + " and your Akan name is " + femaleNames[4]);
-    }
-    else if(birthDay = 6){
-        alert("You were born on " + weekDays[5] + " and your Akan name is " + femaleNames[5]);
-    }
-    else if(birthDay = 7){
-        alert("You were born on " + weekDays[6] + " and your Akan name is " + femaleNames[6]);
-    }
-}
-}
-        

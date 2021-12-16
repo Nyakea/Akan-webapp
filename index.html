@@ -29,7 +29,7 @@
             <p>Welcome to this name calculator that computes the day of the week you were born and generates the
                 respective
                 Akan
-                Name.</p>
+                Name. Want to know the Akan name you would have were you from the community? Fill the form below!</p>
         </div>
 
         <form>
@@ -45,8 +45,7 @@
                 <label class="form-check-label" for="gender">Female</label>
             </div>
             <label for="birthday">Birthday:</label>
-            <div class="mb-3">
-
+            <div class="form-group">
                 <label for="date" class="form-label">Date of birth(in figures):</label>
                 <input type="text" id="date"><br>
                 <label for="month" class="form-label">Month of birth(in figures):</label>
@@ -55,8 +54,8 @@
                 <input type="text" id="year"><br>
             </div>
 
-            <input type="submit" value="Submit" id="submitBtn">
-
+            <input type="submit" value="Submit" id="submitBtn" onclick="getNames(); return false">
+            <p id="results">Results: </p>
 
 
         </form>
